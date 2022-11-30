@@ -36,6 +36,7 @@ public class ATM {
             // loop while user is not yet authenticated
             while (!userAuthenticated) {
                 screen.displayMessageLine("\nWelcome!");
+                createUserAccount();
                 authenticateUser(); // authenticate user
             }
 
@@ -65,6 +66,16 @@ public class ATM {
             screen.displayMessageLine(
                     "Invalid account number or PIN. Please try again.");
         }
+    }
+
+    private void createUserAccount() {
+        screen.displayMessage("\nCreate Account Number ");
+        int accountNumber = keypad.getInput(); // input account number
+        screen.displayMessage("\nCreate your PIN: "); // prompt for PIN
+        int pin = keypad.getInput(); // input PIN
+
+        // Buat Account
+        bankDatabase.CreateAccountUser(accountNumber, pin);
     }
 
     // display the main menu and perform transactions

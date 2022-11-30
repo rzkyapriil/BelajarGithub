@@ -8,10 +8,15 @@ public class BankDatabase {
 
     // no-argument BankDatabase constructor initializes accounts
     public BankDatabase() {
-        accounts = new Account[3]; // just 2 accounts for testing
+        accounts = new Account[5]; // just 2 accounts for testing
         accounts[0] = new Account(12345, 54321, 1000.0, 1200.0);
         accounts[1] = new Account(98765, 56789, 200.0, 200.0);
         accounts[2] = new Account(123123, 321321, 1000000.0, 1200000.0);
+    }
+
+    public void CreateAccountUser(int theAccountNumber, int thePIN)
+    {
+        accounts[3] = new Account(theAccountNumber, thePIN, 0, 0);
     }
 
     // retrieve Account object containing specified account number
